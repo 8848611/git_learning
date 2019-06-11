@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrapper{
+            overflow: hidden;
+            height: 50px;
+            margin: 200px auto;
+            width: 50%;
+        }
+        #adBox {
+            background: red;
+            list-style: none;
+            text-align: center;
+            transform: translateY(0px);
+            
+        }
+        .active{
+            transition: transform .5s !important;
+        }
+        .ad {
+            line-height: 50px;
+            background: #000;
+            color: #fff;
+        }
+        #btn{
+            display: block;
+            width: 50px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <ul id="adBox" class="active">
+            <li class="ad">阿萨德发链接按时发达了解阿萨德发链接1</li>
+            <li class="ad">阿萨德发链接按时发达了解阿萨德发链接2</li>
+            <li class="ad">阿萨德发链接按时发达了解阿萨德发链接3</li>
+            <li class="ad">阿萨德发链接按时发达了解阿萨德发链接1</li>
+        </ul>
+    </div>
+    <button id="btn">按钮</button>
+    <script>
+        var btn = document.querySelector("#btn");
+        var adBox = document.querySelector("#adBox");
+        
+        btn.onclick = function () {
+            adBox.classList.add("active");
+        };
+        var i = 1;
+        var t = 1000;
+        var test = setInterval(fn,t);
+        function fn(){
+            adBox.classList.add("active");
+            adBox.setAttribute("style","transform: translateY(-"+50*i+"px)");
+            i++;
+            if(i==5){
+                adBox.classList.remove("active");
+                adBox.setAttribute("style","transform: translateY(-"+0*i+"px)");
+                i=1;
+            }
+        }
+    </script>
+</body>
+
+</html>
